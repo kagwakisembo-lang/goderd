@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+  <rect width="900" height="500" fill="#fdf7ff"/>
+  <circle cx="240" cy="200" r="70" fill="#fff0f6"/>
+  <rect x="460" y="160" width="340" height="220" rx="18" fill="#fff7ed"/>
+  <text x="40" y="460" font-size="20" fill="#7c3aed">Talent program — placeholder image</text>
+</svg>

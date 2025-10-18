@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+  <rect width="900" height="500" fill="#fffaf0"/>
+  <circle cx="180" cy="220" r="60" fill="#fff1f2"/>
+  <rect x="380" y="140" width="420" height="260" rx="18" fill="#e6fffa"/>
+  <text x="40" y="460" font-size="20" fill="#6b7280">Community outreach — placeholder image</text>
+</svg>

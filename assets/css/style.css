@@ -1,0 +1,132 @@
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.admin-card{
+  background:#fff;
+  border:1px solid #e6e6e6;
+  border-radius:8px;
+  padding:1rem;
+  text-align:center;
+  box-shadow:0 2px 6px rgba(0,0,0,0.03);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  transition: border-color 0.3s ease;
+}
+.admin-card:hover{
+  border-color:var(--secondary-1);
+}
+.admin-card strong{
+  color:var(--secondary-2);
+}
+.admin-img {
+  width: 140px;
+  height: 140px;
+  object-fit:cover;
+  border-radius:6px;
+  margin-bottom:.8rem;
+  background:#f3f4f6;
+  border:1px solid #e6e6e6;
+}
+/* Simple responsive style for Swizen Goderd Foundation */
+:root{
+  --primary:#2b6cb0;
+  --dark:#1a202c;
+  --muted:#6b7280;
+  --max-width:1100px;
+  --secondary-1:#ff6b35;  /* vibrant orange */
+  --secondary-2:#8a4fff;  /* rich purple */
+  --brand-green:#2f8f4e; /* new header/footer green */
+}
+*{box-sizing:border-box}
+body {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  line-height: 1.5;
+  color: var(--dark);
+  margin: 0;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.site-header{background:var(--brand-green); border-bottom:1px solid rgba(0,0,0,0.08)}
+.site-header .container{display:flex; align-items:center; justify-content:space-between}
+.logo{font-weight:900; color:#fff; text-decoration:none; font-size:2.5rem; letter-spacing:1px;}
+/* Make all headings bold */
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+.main-nav a{margin-left:1rem; color:rgba(255,255,255,0.95); text-decoration:none}
+.hero{background:linear-gradient(90deg, rgba(43,108,176,0.06), rgba(255,179,71,0.03)); padding:3rem 0}
+.hero-inner{display:flex; gap:2rem; align-items:center}
+.hero-text{flex:1}
+.hero-text h1{font-size:2rem; margin:0 0 .5rem}
+.hero-text p{color:var(--muted)}
+.hero-media img{max-width:300px}
+
+/* Slider styles */
+.hero-slider{position:relative; overflow:hidden; border-radius:10px; background:#fff; box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+.hero-slider .slide{display:none; align-items:center; gap:1.5rem; padding:2rem}
+.hero-slider .slide.active{display:flex}
+.hero-slider img{max-width:600px; width:100%; height:400px; border-radius:8px; object-fit:cover; box-shadow:0 2px 6px rgba(0,0,0,0.1)}
+.slide-caption{max-width:600px}
+.slide-caption h2{margin:0 0 .3rem; color:var(--secondary-2)}
+.slide-prev,.slide-next{position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.8); border:0; padding:.5rem .8rem; border-radius:6px; cursor:pointer}
+.slide-prev{left:12px}
+.slide-next{right:12px}
+.slide-indicators{position:absolute; left:50%; transform:translateX(-50%); bottom:12px; display:flex; gap:.5rem}
+.slide-indicators button{width:10px; height:10px; border-radius:50%; border:0; background:rgba(0,0,0,0.2); cursor:pointer}
+.slide-indicators button.active{background:var(--primary)}
+.btn{display:inline-block; padding:.6rem 1rem; border-radius:6px; text-decoration:none; border:1px solid transparent;}
+.btn.primary{background:var(--primary); color:#fff}
+.btn.outline{background:transparent; border-color:var(--secondary-1); color:var(--secondary-1)}
+.mission{padding:2rem 0}
+.mission h2{color:var(--secondary-1)}
+.mission-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem}
+.card{background:#fff; padding:1rem; border:1px solid #f0f0f0; border-radius:8px}
+.card h3{color:var(--secondary-2)}
+.programs-list{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem}
+.programs-list article{background:#fff; padding:1rem; border-radius:8px; text-align:center}
+.programs-list h3{color:var(--secondary-2)}
+.programs-list .btn:hover{background:var(--secondary-1); color:white}
+
+/* Programs slider (carousel) */
+.programs-slider{position:relative; overflow:hidden; border-radius:10px; background:#fff; padding:1rem}
+.programs-slider .p-slide{display:none; align-items:center; gap:1rem; padding:1rem}
+.programs-slider .p-slide.active{display:flex; flex-direction:column; align-items:center; text-align:center}
+.programs-slider img{width:100%; max-width:900px; height:320px; object-fit:cover; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.08)}
+.p-caption{max-width:900px; margin-top:.8rem}
+.p-caption h3{margin:0; color:var(--secondary-2)}
+.p-prev,.p-next{position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.9); border:0; padding:.4rem .7rem; border-radius:6px; cursor:pointer}
+.p-prev{left:10px}
+.p-next{right:10px}
+.p-indicators{position:absolute; left:50%; transform:translateX(-50%); bottom:12px; display:flex; gap:.5rem}
+.p-indicators button{width:10px; height:10px; border-radius:50%; border:0; background:rgba(0,0,0,0.2); cursor:pointer}
+.p-indicators button.active{background:var(--primary)}
+
+@media(max-width:800px){
+  .programs-slider img{height:220px}
+}
+.footer-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; padding:2rem 0}
+.site-footer{background:var(--brand-green); border-top:1px solid rgba(0,0,0,0.08); color:#fff}
+.site-footer a{color:rgba(255,255,255,0.95)}
+.footer-bottom{padding:1rem 0; text-align:center}
+.contact-form{max-width:600px}
+.contact-form label{display:block; margin-top:1rem}
+.contact-form input,.contact-form textarea{width:100%; padding:.6rem; border:1px solid #ddd; border-radius:6px}
+.center{text-align:center; margin-top:1rem}
+@media(max-width:800px){
+  .hero-inner{flex-direction:column; text-align:center}
+  .hero-media img{max-width:220px}
+  .main-nav{display:none}
+  .nav-toggle{display:inline-block}
+  .main-nav.open{display:flex; flex-direction:column; gap:.8rem; margin-top:.8rem}
+}
+
+.nav-toggle{display:none; background:transparent; border:0; font-size:1.25rem; cursor:pointer}
