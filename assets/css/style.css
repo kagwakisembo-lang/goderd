@@ -239,4 +239,19 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
   }
 }
 
-.nav-toggle{display:none; background:transparent; border:0; font-size:1.25rem; cursor:pointer}
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  padding: 0.5rem;
+  position: relative;
+  color: white;
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+.nav-toggle[aria-expanded="true"] {
+  transform: rotate(90deg);
+}
