@@ -110,8 +110,24 @@ document.addEventListener('DOMContentLoaded', function(){
       const commentBtn = document.getElementById('commentBtn');
       const commentCount = document.getElementById('commentCount');
       if (commentBtn && commentCount) {
-        const comments = parseInt(localStorage.getItem('totalComments') || '0');
-        commentCount.textContent = formatNumberInK(comments);
+        // Set initial comment count to 1000 if not already higher
+        let comments = parseInt(localStorage.getItem('totalComments') || '0');
+        if (comments < 1000) {
+          comments = 1000;
+          localStorage.setItem('totalComments', comments.toString());
+        }
+        
+        // Update comment count with animation
+        const oldCount = commentCount.textContent;
+        const formattedCount = formatNumberInK(comments);
+        if (formattedCount !== oldCount) {
+          commentCount.style.animation = 'none';
+          commentCount.offsetHeight; // Trigger reflow
+          commentCount.style.animation = 'countUp 0.5s ease-out';
+          commentCount.textContent = formattedCount;
+        } else {
+          commentCount.textContent = formattedCount;
+        }
         
         commentBtn.addEventListener('click', function() {
           alert('Comments feature coming soon!');
