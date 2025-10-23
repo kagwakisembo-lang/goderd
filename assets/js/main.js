@@ -1,4 +1,31 @@
 // Minimal JS for site interactivity
+// Social media sharing function
+function shareToSocial(platform) {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent('Check out Swizen Goderd Foundation!');
+    const text = encodeURIComponent('Supporting vulnerable children and families in Uganda through education, care, and humanitarian support.');
+    
+    let shareUrl = '';
+    
+    switch(platform) {
+        case 'facebook':
+            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            break;
+        case 'twitter':
+            shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+            break;
+        case 'whatsapp':
+            shareUrl = `https://wa.me/?text=${text}%20${url}`;
+            break;
+        case 'linkedin':
+            shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+            break;
+    }
+    
+    window.open(shareUrl, '_blank', 'width=600,height=400');
+    return false;
+}
+
 document.addEventListener('DOMContentLoaded', function(){
   // Track viewers
   function updateViewCount() {

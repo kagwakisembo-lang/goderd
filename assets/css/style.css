@@ -108,6 +108,51 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 .viewers-count span {
     font-size: 1.1rem;
 }
+
+/* Share buttons */
+.share-buttons {
+    margin: 1rem 0;
+    text-align: center;
+}
+.share-buttons h4 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+.share-grid {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+.share-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+.share-btn:hover {
+    transform: scale(1.1);
+}
+.share-btn.facebook {
+    background: #1877f2;
+}
+.share-btn.twitter {
+    background: #1da1f2;
+}
+.share-btn.whatsapp {
+    background: #25d366;
+}
+.share-btn.linkedin {
+    background: #0077b5;
+}
+.share-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
 .subscribe-form{display:flex; gap:.5rem; margin-top:.5rem}
 .subscribe-form input{padding:.5rem; border-radius:6px; border:1px solid #ddd}
 .subscribe-form button{padding:.5rem .8rem}
