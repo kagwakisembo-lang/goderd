@@ -1,5 +1,27 @@
 // Minimal JS for site interactivity
 document.addEventListener('DOMContentLoaded', function(){
+  // Track viewers
+  function updateViewCount() {
+    const viewerCount = document.getElementById('viewerCount');
+    if (!viewerCount) return;
+    
+    // Get stored count
+    let count = parseInt(localStorage.getItem('totalViewers') || '0');
+    let viewed = localStorage.getItem('hasViewed');
+    
+    // If first time viewer
+    if (!viewed) {
+      count++;
+      localStorage.setItem('totalViewers', count.toString());
+      localStorage.setItem('hasViewed', 'true');
+    }
+    
+    // Update display
+    viewerCount.textContent = count;
+  }
+  
+  updateViewCount();
+  
   // set year in footer
   var y = document.getElementById('year');
   if(y) y.textContent = new Date().getFullYear();

@@ -86,6 +86,32 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 .btn{display:inline-block; padding:.6rem 1rem; border-radius:6px; text-decoration:none; border:1px solid transparent;}
 .btn.primary{background:var(--primary); color:#fff}
 .btn.outline{background:transparent; border-color:var(--secondary-1); color:var(--secondary-1)}
+
+/* Engage (likes and subscribe) */
+.engage{margin-top:1rem; display:flex; flex-direction:column; gap:.5rem}
+.engage .btn{display:inline-flex; align-items:center; gap:.5rem}
+.stats-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+.viewers-count {
+    background: rgba(255,255,255,0.1);
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+}
+.viewers-count span {
+    font-size: 1.1rem;
+}
+.subscribe-form{display:flex; gap:.5rem; margin-top:.5rem}
+.subscribe-form input{padding:.5rem; border-radius:6px; border:1px solid #ddd}
+.subscribe-form button{padding:.5rem .8rem}
+.subscribe-form #subMessage{color:#fff}
 .mission{padding:2rem 0}
 .mission h2{color:var(--secondary-1)}
 .mission-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem}
