@@ -27,26 +27,100 @@ function shareToSocial(platform) {
 }
 
 document.addEventListener('DOMContentLoaded', function(){
-  // Track viewers
+  // Format numbers in k format (e.g., 1.2k, 30k)
+  function formatNumberInK(number) {
+    if (number >= 1000000) {
+      return (number / 1000000).toFixed(1) + 'M';
+    } else if (number >= 1000) {
+      return (number / 1000).toFixed(1) + 'k';
+    }
+    return number.toString();
+  }
+
+  // Track viewers and likes
   function updateViewCount() {
     const viewerCount = document.getElementById('viewerCount');
-    if (!viewerCount) return;
+    const likeCount = document.getElementById('likeCount');
+    const likeBtn = document.getElementById('likeBtn');
     
-    // Get stored count
-    let count = parseInt(localStorage.getItem('totalViewers') || '0');
-    let viewed = localStorage.getItem('hasViewed');
-    
-    // If first time viewer
-    if (!viewed) {
-      count++;
-      localStorage.setItem('totalViewers', count.toString());
-      localStorage.setItem('hasViewed', 'true');
+    if (viewerCount) {
+      // Set initial count to 30,000 if not already higher
+      let count = parseInt(localStorage.getItem('totalViewers') || '0');
+      if (count < 30000) {
+        count = 30000;
+        localStorage.setItem('totalViewers', count.toString());
+      }
+      
+      // Format number in k
+      const formattedCount = formatNumberInK(count);
+      
+      // Update viewer display with animation
+      const oldCount = viewerCount.textContent;
+      if (formattedCount !== oldCount) {
+        viewerCount.style.animation = 'none';
+        viewerCount.offsetHeight; // Trigger reflow
+        viewerCount.style.animation = 'countUp 0.5s ease-out';
+        viewerCount.textContent = formattedCount;
+      } else {
+        viewerCount.textContent = formattedCount;
+      }
     }
-    
-    // Update display
-    viewerCount.textContent = count;
+
+    // Handle likes
+    if (likeBtn && likeCount) {
+      const likes = parseInt(localStorage.getItem('totalLikes') || '0');
+      
+      // Update like count display
+      likeCount.textContent = likes;
+      
+      // Add like button handler
+      likeBtn.addEventListener('click', function() {
+        const currentLikes = parseInt(localStorage.getItem('totalLikes') || '0');
+        const newLikes = currentLikes + 1;
+        localStorage.setItem('totalLikes', newLikes.toString());
+        likeCount.textContent = newLikes;
+        
+        // Animate the like button
+        likeBtn.classList.add('liked');
+        setTimeout(() => {
+          likeBtn.classList.remove('liked');
+        }, 1000);
+      });
+
+      // Handle likes display
+      if (likeBtn && likeCount) {
+        const likes = parseInt(localStorage.getItem('totalLikes') || '0');
+        likeCount.textContent = formatNumberInK(likes);
+        
+        likeBtn.addEventListener('click', function() {
+          const currentLikes = parseInt(localStorage.getItem('totalLikes') || '0');
+          const newLikes = currentLikes + 1;
+          localStorage.setItem('totalLikes', newLikes.toString());
+          likeCount.textContent = formatNumberInK(newLikes);
+          
+          // Animate the like button
+          likeBtn.classList.add('liked');
+          setTimeout(() => {
+            likeBtn.classList.remove('liked');
+          }, 1000);
+        });
+      }
+
+      // Handle comments
+      const commentBtn = document.getElementById('commentBtn');
+      const commentCount = document.getElementById('commentCount');
+      if (commentBtn && commentCount) {
+        const comments = parseInt(localStorage.getItem('totalComments') || '0');
+        commentCount.textContent = formatNumberInK(comments);
+        
+        commentBtn.addEventListener('click', function() {
+          alert('Comments feature coming soon!');
+        });
+      }
+    }
   }
   
+  // Initialize counts when page loads
   updateViewCount();
   
   // set year in footer
